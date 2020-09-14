@@ -32,8 +32,11 @@ echo "Downloading models"
 for MODEL in ${MODELS[@]}; do
     MODEL_DIR="${SAVE_DIR}/$MODEL"
     mkdir -p ${MODEL_DIR}
-    wget --continue "${BASE_URL}/$MODEL" -O "${MODEL_DIR}/checkpoint_last.pt"
+    #wget --continue "${BASE_URL}/$MODEL" -O "${MODEL_DIR}/checkpoint_last.pt"
+    # Download via personal repository
 done
+
+python3 ./python_downloader.py
 
 for MODEL in ${SEVEN_MODELS}; do 
     MODEL_DIR="${SAVE_DIR}/$MODEL"
